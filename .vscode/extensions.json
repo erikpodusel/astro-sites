@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "aaron-bond.better-comments",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "christian-kohler.npm-intellisense"
+  ],
+  "unwantedRecommendations": []
+}
