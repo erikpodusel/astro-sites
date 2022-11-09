@@ -19,3 +19,6 @@ pnpm-debug.log*
 
 #IntelliJ stuff
 .idea
+
+# VSCode workspaces
+*.code-workspace
