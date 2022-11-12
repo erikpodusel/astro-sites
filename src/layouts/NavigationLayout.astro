@@ -1,0 +1,22 @@
+---
+import "../assets/global.css";
+import { Menu } from "@components/Menu";
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>🚀{title ?? "Admin"}💸</title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body class="flex flex-row bg-gray-50">
+    <Menu client:load />
+    <nav class="w-full px-14 items-center flex z-50 mt-4 mr-4 card h-16 transition-all">
+      <p>Admin</p>
+    </nav>
+    <article class="h-100 w-100 flex-row">
+      <slot />
+    </article>
+  </body>
+</html>
