@@ -1,5 +1,8 @@
 ---
-import NavigationLayout from "@layouts/NavigationLayout.astro"
+import { changeLanguage } from "i18next";
+import NavigationLayout from "@layouts/NavigationLayout.astro";
+
+changeLanguage("en");
 ---
 
-<NavigationLayout title="Produkty"  />
+<NavigationLayout titleKey="titles.products" />

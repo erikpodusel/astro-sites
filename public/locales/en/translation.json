@@ -1,0 +1,13 @@
+{
+  "titles": {
+    "categories": "Categories",
+    "sub-categories": "Sub-categories",
+    "collections": "Collections",
+    "orders": "Orders",
+    "paypal": "Paypal",
+    "products": "Products"
+  },
+  "buttons": {
+    "save": "Save"
+  }
+}

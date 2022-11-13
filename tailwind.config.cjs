@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       screens: {
         xs: "576px",
+        "3xl": "1920px",
       },
       colors: {
         primary: "orange",
@@ -13,6 +14,9 @@ module.exports = {
       },
       boxShadow: {
         light: "rgba(90, 114, 123, 0.11) 0px 7px 30px 0px",
+      },
+      fontFamily: {
+        montserrat: "Montserrat, sans-serif",
       },
     },
   },

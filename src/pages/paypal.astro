@@ -1,0 +1,11 @@
+---
+import { changeLanguage } from "i18next";
+import { PaypalForm } from "@components/PaypalForm";
+import NavigationLayout from "@layouts/NavigationLayout.astro";
+
+changeLanguage("en");
+---
+
+<NavigationLayout titleKey="titles.paypal">
+  <PaypalForm client:visible />
+</NavigationLayout>

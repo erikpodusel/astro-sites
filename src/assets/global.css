@@ -4,6 +4,18 @@
 
 @layer components {
   .card {
-    @apply p-4 rounded-3xl shadow-light bg-white gap-2;
+    @apply p-4 rounded-3xl shadow-light bg-white gap-4;
+  }
+
+  .container {
+    @apply xs:w-full md:max-w-xl lg:max-w-4xl w-full mx-auto;
+  }
+
+  .input {
+    @apply focus:border-black border-2 hover:border-black hover:border-2 rounded-lg transition-all duration-300 focus:outline-none px-3 text-base h-8;
+  }
+
+  .button {
+    @apply bg-black text-white rounded-lg h-8 w-fit px-8 self-end;
   }
 }
