@@ -4,8 +4,9 @@ import { Trans } from "react-i18next";
 export const PaypalForm: FC = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    const { paypal } = event.target;
 
-    console.log("event ->", event.target.paypal.value);
+    console.log("event ->", paypal.value);
   };
 
   return (
