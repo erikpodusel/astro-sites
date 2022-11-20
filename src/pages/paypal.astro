@@ -1,11 +1,17 @@
 ---
 import { changeLanguage } from "i18next";
-import { PaypalForm } from "@components/PaypalForm";
 import NavigationLayout from "@layouts/NavigationLayout.astro";
+import { Form } from "@components/Form";
+import { Trans } from "react-i18next";
 
 changeLanguage("en");
 ---
 
 <NavigationLayout titleKey="titles.paypal">
-  <PaypalForm client:visible />
+  <Form className="card flex flex-col p-8 w-96 mx-auto" client:visible name="paypal">
+    <label for="paypal">
+      <Trans i18nKey={"titles.paypal"}>Paypal</Trans>
+    </label>
+    <input class="input" name="paypal" id="paypal" />
+  </Form>
 </NavigationLayout>

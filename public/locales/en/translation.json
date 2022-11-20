@@ -5,9 +5,24 @@
     "collections": "Collections",
     "orders": "Orders",
     "paypal": "Paypal",
-    "products": "Products"
+    "products": "Products",
+    "product_detail": "Product detail"
   },
   "buttons": {
     "save": "Save"
+  },
+  "texts": {
+    "name": "Name",
+    "category": "Category",
+    "collection": "Collection",
+    "prices": "Prices",
+    "eshop_price": "Eshop price",
+    "buy_price": "Buy price",
+    "sale": "Sale",
+    "general": "General",
+    "visible": "Visible",
+    "warehouse_count": "Warehouse count",
+    "visible_from": "Visible from",
+    "visible_until": "Visible until"
   }
 }

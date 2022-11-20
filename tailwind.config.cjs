@@ -11,6 +11,7 @@ module.exports = {
         primary: "orange",
         secondary: "#000",
         tertiary: "#000",
+        hover: "#f3f4f6",
       },
       boxShadow: {
         light: "rgba(90, 114, 123, 0.11) 0px 7px 30px 0px",

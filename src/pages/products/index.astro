@@ -1,0 +1,11 @@
+---
+import { changeLanguage } from "i18next";
+import NavigationLayout from "@layouts/NavigationLayout.astro";
+import { ProductsTable } from "@components/products/ProductsTable";
+
+changeLanguage("en");
+---
+
+<NavigationLayout titleKey="titles.products">
+  <ProductsTable client:visible />
+</NavigationLayout>

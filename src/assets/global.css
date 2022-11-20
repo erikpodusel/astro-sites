@@ -18,4 +18,12 @@
   .button {
     @apply bg-black text-white rounded-lg h-8 w-fit px-8 self-end;
   }
+
+  .col {
+    @apply flex flex-col;
+  }
+
+  .row {
+    @apply flex flex-row;
+  }
 }

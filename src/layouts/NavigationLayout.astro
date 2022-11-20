@@ -3,7 +3,7 @@ import "../assets/global.css";
 import { Menu } from "@components/Menu";
 import i18next, { t } from "i18next";
 
-const { titleKey } = Astro.props;
+const { titleKey, wrapperClass } = Astro.props;
 ---
 
 <html lang={i18next.language}>
@@ -20,13 +20,14 @@ const { titleKey } = Astro.props;
   </head>
   <body class="flex flex-row bg-gray-50 2xl:max-w-7xl mx-auto font-montserrat">
     <Menu client:load />
-    <section class="w-full h-full">
-      <nav class="px-7 items-center flex z-50 mr-4 card h-16 transition-all sticky top-4">
+    <section class="w-full h-full pr-8">
+      <div class="h-4 w-full top-0 sticky backdrop-blur-sm"></div>
+      <nav class="px-8 items-center flex z-50 card h-16 transition-all top-4 sticky">
         <h1 class="font-bold text-2xl">
           {titleKey ? t(titleKey) : "Admin"}
         </h1>
       </nav>
-      <article class="container mt-20">
+      <article class={`container mt-8 ${wrapperClass}`}>
         <slot />
       </article>
     </section>

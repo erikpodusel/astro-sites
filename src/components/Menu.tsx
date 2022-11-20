@@ -6,6 +6,8 @@ interface IMenuItem {
   icon: ReactNode;
 }
 
+const srcPreffix = "../../public/";
+
 export const Menu: FC = () => {
   const cacheKey = "menu-collapse";
   const [collapsed, setCollapsed] = useState(true);
@@ -15,32 +17,56 @@ export const Menu: FC = () => {
     {
       to: "/products",
       title: "Produkty",
-      icon: <img src="shoe-sneaker.png" alt="Products icon" className={"h-6 w-6 mx-3"} />,
+      icon: (
+        <img src={srcPreffix + "shoe-sneaker.png"} alt="Products icon" className={"h-6 w-6 mx-3"} />
+      ),
     },
     {
       to: "/categories",
       title: "Kategórie",
-      icon: <img src="folder.png" alt="Categories icon" className={"h-6 w-6 mx-3"} />,
+      icon: (
+        <img src={srcPreffix + "folder.png"} alt="Categories icon" className={"h-6 w-6 mx-3"} />
+      ),
     },
     {
       to: "/sub-categories",
       title: "Podkategórie",
-      icon: <img src="folder-multiple.png" alt="Subcategories icon" className={"h-6 w-6 mx-3"} />,
+      icon: (
+        <img
+          src={srcPreffix + "folder-multiple.png"}
+          alt="Subcategories icon"
+          className={"h-6 w-6 mx-3"}
+        />
+      ),
     },
     {
       to: "/collections",
       title: "Kolekcie",
-      icon: <img src="timer-edit.png" alt="Subcategories icon" className={"h-6 w-6 mx-3"} />,
+      icon: (
+        <img
+          src={srcPreffix + "timer-edit.png"}
+          alt="Subcategories icon"
+          className={"h-6 w-6 mx-3"}
+        />
+      ),
     },
     {
       to: "/orders",
       title: "Objednávky",
-      icon: <img src="clipboard-list.png" alt="Subcategories icon" className={"h-6 w-6 mx-3"} />,
+      icon: (
+        <img
+          src={srcPreffix + "clipboard-list.png"}
+          alt="Subcategories icon"
+          className={"h-6 w-6 mx-3"}
+        />
+      ),
     },
     {
       to: "/paypal",
       title: "Paypal",
-      icon: <img src="paypal.png" alt="Subcategories icon" className={"h-6 w-6 mx-3"} />,
+      icon: (
+        <img src={srcPreffix + "paypal.png"} alt="Subcategories icon" className={"h-6 w-6 mx-3"} />
+      ),
     },
   ];
 
@@ -69,32 +95,35 @@ export const Menu: FC = () => {
   }, []);
 
   return (
-    <section
-      className={`z-50 max-h-full ${
-        collapsed ? "w-20" : "w-72"
-      } flex flex-col mx-4 my-4 top-4 sticky h-fit card transition-all duration-300 select-none`}
-    >
-      <span
-        className={`flex h-12 hover:bg-gray-100 transition-all items-center hover:rounded-3xl duration-300 cursor-pointer ${
-          collapsed ? "w-12" : "w-full"
-        }`}
-        onClick={handleCollapse}
+    <nav>
+      <ul
+        className={`z-50 max-h-full ${
+          collapsed ? "w-20" : "w-72"
+        } flex flex-col ml-4 mr-8 my-4 top-4 sticky h-fit card transition-all duration-300 select-none`}
       >
-        <img src="menu.png" alt="Menu burger" className={"h-6 w-6 mx-3"} />
-        <p className={paragraphStyle}>Zavrieť</p>
-      </span>
-      {menuItems.map(({ title, icon, to }) => (
-        <a
-          className={`flex h-12 hover:bg-gray-100 transition-all items-center hover:rounded-3xl duration-300 ${
+        <li
+          className={`flex h-12 hover:bg-hover transition-all items-center hover:rounded-3xl duration-300 cursor-pointer ${
             collapsed ? "w-12" : "w-full"
-          } ${pathname?.includes(to) ? "bg-gray-100 rounded-xl" : ""}`}
-          href={to}
-          key={title}
+          }`}
+          onClick={handleCollapse}
         >
-          {icon}
-          <p className={paragraphStyle}>{title}</p>
-        </a>
-      ))}
-    </section>
+          <img src={srcPreffix + "menu.png"} alt="Menu burger" className={"h-6 w-6 mx-3"} />
+          <p className={paragraphStyle}>Zavrieť</p>
+        </li>
+        {menuItems.map(({ title, icon, to }) => (
+          <li key={title}>
+            <a
+              className={`flex h-12 hover:bg-hover transition-all items-center hover:rounded-3xl duration-300 ${
+                collapsed ? "w-12" : "w-full"
+              } ${pathname?.includes(to) ? "bg-gray-100 rounded-xl" : ""}`}
+              href={to}
+            >
+              {icon}
+              <p className={paragraphStyle}>{title}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
