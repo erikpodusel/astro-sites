@@ -2,7 +2,7 @@ import type { Method } from "axios";
 import type { FC, ReactNode } from "react";
 import { Trans } from "react-i18next";
 
-interface IForm {
+export interface IForm {
   children: ReactNode;
   apiUrl?: string;
   method?: Method;

@@ -1,8 +1,46 @@
 ---
 import { changeLanguage } from "i18next";
 import NavigationLayout from "@layouts/NavigationLayout.astro";
+import { Form } from "@components/Form";
+import { Trans } from "react-i18next";
+import { VisibilityForm } from "@components/VisibilityForm";
 
 changeLanguage("en");
+
+/* 
+
+- názov - prepared
+- fotka (podľa designu)
+- do kolekcie sa budú linkovať produkty
+- dátumy odkedy dokedy sa budú kolekcie zobrazovať na stránke - prepared
+
+*/
 ---
 
-<NavigationLayout titleKey="titles.collections" />
+<NavigationLayout titleKey="titles.collections">
+  <div class="col gap-8">
+    <div class="row gap-8">
+      <Form name="general" client:load className="card col p-8 flex-1">
+        <strong>
+          <h2 class="text-xl"><Trans i18nKey={"texts.general"}>General</Trans></h2>
+        </strong>
+        <label for="name">
+          <Trans i18nKey={"texts.name"}>Name</Trans>
+        </label>
+        <input type="text" class="input" name="name" required />
+      </Form>
+      <VisibilityForm client:visible />
+    </div>
+    <Form name="products" className="card col p-8 flex-1" client:visible>
+      <strong>
+        <h2 class="text-xl"><Trans i18nKey={"texts.general"}>General</Trans></h2>
+      </strong>
+      <select class="input" multiple>
+        <option disabled value=" " selected hidden>Choose products</option>
+        <option>Product 1</option>
+        <option>Product 2</option>
+        <option>Product 3</option>
+      </select>
+    </Form>
+  </div>
+</NavigationLayout>

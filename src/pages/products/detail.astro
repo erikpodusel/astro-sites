@@ -3,6 +3,7 @@ import { changeLanguage } from "i18next";
 import NavigationLayout from "@layouts/NavigationLayout.astro";
 import { Form } from "@components/Form";
 import { Trans } from "react-i18next";
+import { VisibilityForm } from "@components/VisibilityForm";
 
 changeLanguage("en");
 
@@ -30,12 +31,14 @@ Stats
 */
 ---
 
-<NavigationLayout titleKey="titles.product_detail" wrapperClass="gap-8 flex flex-col mb-8">
+<NavigationLayout titleKey="titles.product_detail" wrapperClass="gap-8 col mb-8">
   <div class="flex xs:flex-row gap-8 flex-col">
-    <Form name="general" className="card flex flex-col p-8 flex-1" client:load>
-      <h2 class="font-bold text-xl">
-        <Trans i18nKey={"texts.general"}>General</Trans>
-      </h2>
+    <Form name="general" className="card col p-8 flex-1" client:load>
+      <strong
+        ><h2 class="text-xl">
+          <Trans i18nKey={"texts.general"}>General</Trans>
+        </h2>
+      </strong>
       <div class="col">
         <label for="name">
           <Trans i18nKey={"texts.name"}>Name</Trans>
@@ -67,9 +70,11 @@ Stats
       </div>
     </Form>
     <Form name="prices" className="card flex flex-col p-8 flex-1" client:visible>
-      <h2 class="font-bold text-xl">
-        <Trans i18nKey={"texts.prices"}>Prices</Trans>
-      </h2>
+      <strong
+        ><h2 class="text-xl">
+          <Trans i18nKey={"texts.prices"}>Prices</Trans>
+        </h2>
+      </strong>
       <div class="col">
         <label for="eshop_price">
           <Trans i18nKey={"texts.eshop_price"}>Eshop price</Trans>
@@ -96,37 +101,11 @@ Stats
       </div>
     </Form>
   </div>
-  <Form name="visibility" className="card flex flex-col p-8" client:visible>
-    <h2 class="font-bold text-xl">Visibility</h2>
-    <span class="items-center flex gap-4">
-      <input type="checkbox" class="input" name="visible" />
-      <label for="visible">
-        <Trans i18nKey={"texts.visible"}>Visible</Trans>
-      </label>
-    </span>
-    <div class="flex flex-row gap-4">
-      <span class="flex flex-col flex-1">
-        <label for="visible_from">
-          <Trans i18nKey={"visible_from"}>Visible from</Trans>
-        </label>
-        <input type="date" class="input" name="visible_from" />
-      </span>
-      <span class="flex flex-col flex-1">
-        <label for="visible_until">
-          <Trans i18nKey={"visible_until"}>Visible until</Trans>
-        </label>
-        <input type="date" class="input" name="visible_until" />
-      </span>
-    </div>
-    <div class="col">
-      <label for="warehouse_count">
-        <Trans i18nKey={"texts.warehouse_count"}>Warehouse count</Trans>
-      </label>
-      <input type="number" name="warehouse_count" class="input" />
-    </div>
-  </Form>
+  <VisibilityForm client:visible />
   <div class="card p-8">
-    <h2 class="font-bold text-xl">Images</h2>
+    <strong>
+      <h2 class="text-xl">Images</h2>
+    </strong>
     <p>@todo</p>
   </div>
 </NavigationLayout>
