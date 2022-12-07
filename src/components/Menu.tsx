@@ -6,7 +6,8 @@ interface IMenuItem {
   icon: ReactNode;
 }
 
-const srcPreffix = "../../public/";
+// const srcPreffix = "../../public/";
+const srcPreffix = "/";
 
 export const Menu: FC = () => {
   const cacheKey = "menu-collapse";

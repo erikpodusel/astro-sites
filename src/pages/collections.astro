@@ -4,6 +4,7 @@ import NavigationLayout from "@layouts/NavigationLayout.astro";
 import { Form } from "@components/Form";
 import { Trans } from "react-i18next";
 import { VisibilityForm } from "@components/VisibilityForm";
+import { MultiSelect } from "@components/MultiSelect";
 
 changeLanguage("en");
 
@@ -35,12 +36,13 @@ changeLanguage("en");
       <strong>
         <h2 class="text-xl"><Trans i18nKey={"texts.general"}>General</Trans></h2>
       </strong>
-      <select class="input" multiple>
+      <!-- <select class="input" multiple>
         <option disabled value=" " selected hidden>Choose products</option>
         <option>Product 1</option>
         <option>Product 2</option>
         <option>Product 3</option>
-      </select>
+      </select> -->
+      <MultiSelect placeholder="Please select products" client:visible />
     </Form>
   </div>
 </NavigationLayout>
