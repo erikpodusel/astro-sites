@@ -7,15 +7,6 @@ import { VisibilityForm } from "@components/VisibilityForm";
 import { MultiSelect } from "@components/MultiSelect";
 
 changeLanguage("en");
-
-/* 
-
-- názov - prepared
-- fotka (podľa designu)
-- do kolekcie sa budú linkovať produkty
-- dátumy odkedy dokedy sa budú kolekcie zobrazovať na stránke - prepared
-
-*/
 ---
 
 <NavigationLayout titleKey="titles.collections">
@@ -34,15 +25,15 @@ changeLanguage("en");
     </div>
     <Form name="products" className="card col p-8 flex-1" client:visible>
       <strong>
-        <h2 class="text-xl"><Trans i18nKey={"texts.general"}>General</Trans></h2>
+        <h2 class="text-xl"><Trans i18nKey={"titles.products"}>Products</Trans></h2>
       </strong>
-      <!-- <select class="input" multiple>
-        <option disabled value=" " selected hidden>Choose products</option>
-        <option>Product 1</option>
-        <option>Product 2</option>
-        <option>Product 3</option>
-      </select> -->
       <MultiSelect placeholder="Please select products" client:visible />
     </Form>
+    <div class="card p-8">
+      <strong>
+        <h2 class="text-xl">Images</h2>
+      </strong>
+      <p>@todo</p>
+    </div>
   </div>
 </NavigationLayout>

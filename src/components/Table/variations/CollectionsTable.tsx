@@ -1,33 +1,28 @@
-import type { FC } from "react";
-import type { IProduct } from "@my-types/products";
+import type { ICollection } from "@my-types/collections";
 import type { TTableColumn } from "@my-types/components";
-import { Table } from "@components/Table";
 import { parseDate } from "src/utils/parseDate";
+import { Table } from "..";
 
-const products: IProduct[] = [
+const collections: ICollection[] = [
   {
     id: 1,
-    title: "Produkt č. 1",
-    warehouse_count: 5,
-    category_id: 1,
+    title: "Kolekcia č. 1",
     images: [],
-    price: "119.00",
     available_from: "2022-06-20T06:11:54",
     available_to: "2022-06-24T06:11:54",
+    product_ids: [],
   },
   {
     id: 2,
-    title: "Produkt č. 2",
-    warehouse_count: 5,
-    category_id: 1,
+    title: "Kolekcia č. 2",
     images: [],
-    price: "99.99",
     available_from: "2022-06-20T06:11:54",
     available_to: "2022-06-24T06:11:54",
+    product_ids: [],
   },
 ];
 
-const columns: TTableColumn<IProduct> = [
+const columns: TTableColumn<ICollection> = [
   {
     title: "ID",
     renderer: ({ id }) => id,
@@ -35,10 +30,6 @@ const columns: TTableColumn<IProduct> = [
   {
     title: "Názov",
     renderer: ({ title }) => title,
-  },
-  {
-    title: "Cena",
-    renderer: ({ price }) => price + " €",
   },
   {
     title: "Zobraziť od",
@@ -50,15 +41,15 @@ const columns: TTableColumn<IProduct> = [
   },
 ];
 
-export const ProductsTable: FC = ({}) => {
-  const handleRowClick = (item: IProduct) => {
-    window.location.href = `/products/detail?id=${item.id}`;
-  };
+const handleRowClick = (item: ICollection) => {
+  window.location.href = `/collections/detail?id=${item.id}`;
+};
 
+export const CollectionsTable = () => {
   return (
     <div className="card p-0">
       <Table
-        data={products}
+        data={collections}
         columns={columns}
         className="p-8 w-full rounded-none"
         onRowClick={handleRowClick}

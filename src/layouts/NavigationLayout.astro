@@ -3,7 +3,7 @@ import "../assets/global.css";
 import { Menu } from "@components/Menu";
 import i18next, { t } from "i18next";
 
-const { titleKey, wrapperClass } = Astro.props;
+const { titleKey, wrapperClass, allowCreate, handleCreate } = Astro.props;
 ---
 
 <html lang={i18next.language}>
@@ -26,6 +26,13 @@ const { titleKey, wrapperClass } = Astro.props;
         <h1 class="font-bold text-2xl">
           {titleKey ? t(titleKey) : "Admin"}
         </h1>
+        {
+          allowCreate || handleCreate ? (
+            <button class="button" onclick="handleCreate()">
+              Create
+            </button>
+          ) : null
+        }
       </nav>
       <article class={`container mt-8 ${wrapperClass}`}>
         <slot />

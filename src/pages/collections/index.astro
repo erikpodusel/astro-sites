@@ -1,0 +1,14 @@
+---
+import { CollectionsTable } from "@components/Table/variations/CollectionsTable";
+import NavigationLayout from "@layouts/NavigationLayout.astro";
+---
+
+<NavigationLayout
+  titleKey="titles.collections"
+  allowCreate
+  handleCreate={() => {
+    console.log("create");
+  }}
+>
+  <CollectionsTable client:visible />
+</NavigationLayout>

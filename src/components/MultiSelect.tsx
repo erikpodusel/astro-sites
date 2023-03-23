@@ -17,7 +17,7 @@ interface Props {
 
 const panelData: MultiSelectItem[] = [];
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 1; i <= 1000; i++) {
   panelData.push({ value: i.toString(), title: `Product ${i}` });
 }
 
@@ -51,7 +51,7 @@ export const MultiSelect: FC<Props> = ({ placeholder, defaultValue, data = panel
       tags.push(
         <Tag
           title={title}
-          onClick={(e) => {
+          onCrossClick={(e) => {
             e.preventDefault();
             handleClick(selectedValue);
           }}

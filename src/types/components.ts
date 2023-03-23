@@ -15,3 +15,9 @@ export type TTableColumn<T> = Array<{
   title: string;
   renderer: (item: T) => ReactNode;
 }>;
+
+export interface IVisibility {
+  available?: boolean;
+  available_from?: string;
+  available_to?: string;
+}

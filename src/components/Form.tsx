@@ -1,6 +1,7 @@
 import type { Method } from "axios";
 import type { FC, ReactNode } from "react";
 import { Trans } from "react-i18next";
+import { isValueDefined } from "src/utils/isValueDefined";
 
 export interface IForm {
   children: ReactNode;
@@ -21,6 +22,8 @@ export const Form: FC<IForm> = ({ children, className, name }) => {
     let dataObject = {};
 
     for (const [key, value] of data) {
+      if (!isValueDefined(value)) continue;
+
       dataObject = { ...dataObject, [key]: value };
     }
 

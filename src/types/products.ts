@@ -1,4 +1,6 @@
-export interface IProduct {
+import type { IVisibility } from "./components";
+
+export interface IProduct extends IVisibility {
   id: number;
   title: string;
   warehouse_count: number | null;
@@ -6,7 +8,4 @@ export interface IProduct {
   category_id: number;
   price: string;
   images: string[];
-  available?: boolean;
-  available_from?: string;
-  available_to?: string;
 }
