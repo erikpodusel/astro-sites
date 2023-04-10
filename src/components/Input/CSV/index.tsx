@@ -1,6 +1,6 @@
 import { Input, InputProps } from '@components/Input'
 import type { FC } from 'react'
-import { AES }  from 'crypto-js'
+import CryptoJS from 'crypto-js'
 
 export type CSVInputProps = InputProps & { encryptionKey: string, onButtonPress: (hashes: TLoginHash[]) => void }
 export type TLoginHash = {fileName: string, value: string}
@@ -39,7 +39,7 @@ export const CSVInput: FC<CSVInputProps> = ({ encryptionKey, onButtonPress, ...p
 
         const loginInfo = { username, password }
         const loginInfoJson = JSON.stringify(loginInfo)
-        const encryptedText = AES.encrypt(loginInfoJson, encryptionKey).toString()
+        const encryptedText = CryptoJS.AES.encrypt(loginInfoJson, encryptionKey).toString()
 
         hashes.push({fileName: name, value: encryptedText})
       }
