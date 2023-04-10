@@ -4,7 +4,7 @@ import { QRCodeCanvas } from 'qrcode.react'
 import { FC, useDeferredValue, useMemo, useState } from 'react'
 import { Trans } from 'react-i18next'
 
-export const QrLoginCard: FC<{encryptionKey: string}> = () => {
+export const QrLoginCard: FC<{encryptionKey: string}> = ({ encryptionKey }) => {
   const [hashes, setHashes] = useState<TLoginHash[]>([])
   const [filter, setFilter] = useState('')
   const deferredFilter = useDeferredValue(filter)
@@ -35,7 +35,7 @@ export const QrLoginCard: FC<{encryptionKey: string}> = () => {
         </h2>
       </strong>
 
-      <CSVInput className='mt-2 w-72' encryptionKey={import.meta.env.PUBLIC_ENCRYPTION_KEY} onButtonPress={setHashes} />
+      <CSVInput className='mt-2 w-72' encryptionKey={encryptionKey} onButtonPress={setHashes} />
     </div>
     
     {hashes.length > 0 &&
