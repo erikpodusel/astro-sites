@@ -16,7 +16,7 @@ export const Menu: FC = () => {
 
   const menuItems: IMenuItem[] = [
     {
-      to: '/qr-login',
+      to: '/',
       title: 'QR Login',
       icon: 'qr-code.png'
     }

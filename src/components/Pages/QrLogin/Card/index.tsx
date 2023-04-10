@@ -1,13 +1,17 @@
-import { Input } from "@components/Input"
-import { CSVInput, TLoginHash } from "@components/Input/CSV"
-import { QRCodeCanvas } from "qrcode.react"
-import { FC, useDeferredValue, useState } from "react"
-import { Trans } from "react-i18next"
+import { Input } from '@components/Input'
+import { CSVInput, TLoginHash } from '@components/Input/CSV'
+import { QRCodeCanvas } from 'qrcode.react'
+import { FC, useDeferredValue, useMemo, useState } from 'react'
+import { Trans } from 'react-i18next'
 
 export const QrLoginCard: FC<{encryptionKey: string}> = () => {
   const [hashes, setHashes] = useState<TLoginHash[]>([])
   const [filter, setFilter] = useState('')
   const deferredFilter = useDeferredValue(filter)
+
+  const filteredHashes = useMemo(() => {
+    return hashes.filter(({fileName}) => fileName.toLowerCase().includes(deferredFilter.toLowerCase()))
+  }, [hashes, deferredFilter])
 
   const handleDownload = (fileName: string) => {
     const qrCode = document.getElementById(fileName) as HTMLCanvasElement
@@ -40,13 +44,13 @@ export const QrLoginCard: FC<{encryptionKey: string}> = () => {
           <p>Search: </p>
           <Input onChange={({ target }) => setFilter(target.value)} />
         </div>
-        {hashes.filter(({fileName}) => fileName.toLowerCase().includes(deferredFilter.toLowerCase())).map(({fileName, value}) => <div key={fileName + value} onClick={() => handleDownload(fileName)}>
-            <p>{fileName}</p>
-            <QRCodeCanvas value={value} size={178} id={fileName} />
-          </div> 
+        {filteredHashes.map(({fileName, value}) => <div key={fileName + value} onClick={() => handleDownload(fileName)}>
+          <p>{fileName}</p>
+          <QRCodeCanvas value={value} size={178} id={fileName} />
+        </div> 
         )}
       </div>
     }
     
-    </div> 
+  </div> 
 }
