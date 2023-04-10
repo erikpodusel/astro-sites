@@ -1,0 +1,11 @@
+---
+import { changeLanguage } from 'i18next'
+import NavigationLayout from '@layouts/NavigationLayout.astro'
+import { QrLoginCard } from '@components/Pages/QrLogin/Card'
+
+changeLanguage('en')
+---
+
+<NavigationLayout titleKey="titles.qr-login">
+  <QrLoginCard encryptionKey={import.meta.env.PUBLIC_ENCRYPTION_KEY} client:load />
+</NavigationLayout>

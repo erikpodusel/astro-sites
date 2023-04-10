@@ -6,7 +6,8 @@
     "orders": "Orders",
     "paypal": "Paypal",
     "products": "Products",
-    "product_detail": "Product detail"
+    "product_detail": "Product detail",
+    "qr-login": "Login QR Generator"
   },
   "buttons": {
     "save": "Save"
