@@ -41,7 +41,9 @@ export const QrLoginCard: FC<{encryptionKey: string}> = ({ encryptionKey }) => {
     {hashes.length > 0 &&
       <div className="card flex flex-wrap flex-row gap-2 mt-4 cursor-pointer">
         <div className="flex flex-row w-full justify-end items-center gap-2">
-          <p>Search: </p>
+          <strong>
+            <p>Search: </p>
+          </strong>
           <Input onChange={({ target }) => setFilter(target.value)} />
         </div>
         {filteredHashes.map(({fileName, value}) => <div key={fileName + value} onClick={() => handleDownload(fileName)}>
